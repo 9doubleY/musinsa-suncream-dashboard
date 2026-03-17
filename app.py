@@ -716,7 +716,6 @@ with tab4:
     anova_df = pd.DataFrame(anova_data)
     st.dataframe(
         anova_df.style
-            .background_gradient(subset=["F 통계량"], cmap="Reds")
             .format({"A_top50 평균":":.3f","B_올영 평균":":.3f","C_잠재 평균":":.3f","F 통계량":":.1f"}),
         use_container_width=True, hide_index=True,
     )
@@ -814,8 +813,6 @@ with tab5:
     c_detail["제품명"] = c_detail["제품명"].apply(lambda x: x[:22]+"…" if len(str(x))>22 else x)
     st.dataframe(
         c_detail.style
-            .background_gradient(subset=["TOP50예측"], cmap="Greens")
-            .background_gradient(subset=["리뷰수"], cmap="Blues")
             .format({
                 "가격": "{:,.0f}원",
                 "TOP50예측": "{:.3f}",
@@ -892,8 +889,6 @@ with tab6:
     st.markdown(f"**총 {len(display_df)}개 제품** (필터·검색 적용)", unsafe_allow_html=True)
     st.dataframe(
         display_df.style
-            .background_gradient(subset=["TOP50확률"], cmap="RdYlGn")
-            .background_gradient(subset=["리뷰수"], cmap="Blues")
             .format({
                 "가격": "{:,.0f}원",
                 "할인율": "{:.0f}%",
